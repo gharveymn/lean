@@ -62,10 +62,10 @@ If you use [prezto](https://github.com/sorin-ionescu/prezto) you should do the f
 
 ```
 cd ~/.zprezto/ \
-&& git submodule add https://github.com/gharveymn/mylean.git modules/prompt/external/lean 2>/dev/null \
+&& git submodule add https://github.com/gharveymn/mylean.git modules/prompt/external/mylean 2>/dev/null \
 && git submodule update --init --recursive \
 && cd modules/prompt/functions \
-&& ln -s prompt_mylean_setup ../external/mylean/mylean.prompt.zsh
+&& ln -s ../external/mylean/mylean.prompt.zsh prompt_mylean_setup
 ```
 
 Then in `~/.zpreztorc`:
