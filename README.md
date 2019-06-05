@@ -46,13 +46,13 @@ zgen
 ---
 
 If you use [zgen](https://github.com/tarjoilija/zgen) you can add the following
-to your `~/.zshrc`:
+to your `.zshrc`:
 
 ```
 zgen load gharveymn/mylean
 ```
 
-and force reload with `zgen reset && source ~/.zshrc`.
+and force reload with `zgen reset && source ${ZDOTDIR:-$HOME}/.zshrc`.
 
 Note you must have the option PROMPT_SUBST set, see zshoptions(1).
 
@@ -61,18 +61,18 @@ prezto
 If you use [prezto](https://github.com/sorin-ionescu/prezto) you should do the following:
 
 ```
-cd ~/.zprezto/ \
+cd ${ZDOTDIR:-$HOME}/.zprezto/ \
 && git submodule add https://github.com/gharveymn/mylean.git modules/prompt/external/mylean 2>/dev/null \
 && git submodule update --init --recursive \
 && cd modules/prompt/functions \
 && ln -s ../external/mylean/mylean.prompt.zsh prompt_mylean_setup
 ```
 
-Then in `~/.zpreztorc`:
+Then in `${ZDOTDIR:-$HOME}/.zpreztorc`:
 
 ```
 zstyle ':prezto:module:prompt' theme 'mylean'
 ```
 
-`PROMPT_LEAN_LEFT` and `PROMPT_LEAN_RIGHT` should be customized in `~/.zshrc`.
-The rest variables should be customized in `~/.zshenv`.
+`PROMPT_LEAN_LEFT` and `PROMPT_LEAN_RIGHT` should be customized in `.zshrc`.
+The rest variables should be customized in `.zshenv`.
