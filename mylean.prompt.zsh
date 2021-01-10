@@ -64,7 +64,9 @@ prompt_mylean_human_time() {
     local hours=$(( tmp / 60 / 60 % 24 ))
     local minutes=$(( tmp / 60 % 60 ))
     local seconds=$(( tmp % 60 ))
-    echo -n "%F{"$PROMPT_MYLEAN_COLOR_TIMER_SYMBOL"}%{⌚︎%2G%}%f%F{"$PROMPT_MYLEAN_COLOR_TIMER"}"
+    local time_char_width=$(print '⌚︎' | wc -L)
+    local time_char="⌚︎%${time_char_width}G"
+    echo -n "%F{"$PROMPT_MYLEAN_COLOR_TIMER_SYMBOL"}%{"$time_char"%}%f%F{"$PROMPT_MYLEAN_COLOR_TIMER"}"
     (( $days > 0 )) && echo -n "${days}d "
     (( $hours > 0 )) && echo -n "${hours}h "
     (( $minutes > 0 )) && echo -n "${minutes}m "
